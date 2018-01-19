@@ -1,0 +1,6 @@
+leftCamera,1,1,0
+rightCamera,-1,1,0
+markerBoard,0,-10,30
+markerPlayer,-20,0,30
+markerPlayer,20,0,30
+markerPlayer,0,0,60 
