@@ -1,7 +1,2 @@
 *.meta
-Unity_MJ/Library/
-Unity_MJ/Temp/
-Unity_MJ/UnityPackageManager/
-Unity_Joueur/Library/
-Unity_Joueur/Temp/
-Unity_Joueur/UnityPackageManager/
+
