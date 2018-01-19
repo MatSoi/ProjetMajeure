@@ -1,0 +1,34 @@
+[
+  {
+    "id": 0,
+    "title": "Health Potion",
+    "value": 6,
+	"stats": {
+	  "healthmodifier": 10.0,
+	  "energymodifier": 0.0,
+	  "armormodifier": 0.0,
+	  "damagemodifier": 0.0
+	},
+	"description": "Incredible health Potion",
+	"stackable": true,
+	"rarity": 2,
+	"slug": "red_potion_ic",
+	"equipmentslot": 0
+  },
+  {
+    "id": 1,
+    "title": "Energy Potion",
+    "value": 42,
+	"stats": {
+	  "healthmodifier": 0.0,
+	  "energymodifier": 10.0,
+	  "armormodifier": 0.0,
+	  "damagemodifier": 0.0
+	},
+	"description": "Incredible Energy Potion",
+	"stackable": true,
+	"rarity": 2,
+	"slug": "blue_potion_ic",
+	"equipmentslot": 1
+  }
+]
