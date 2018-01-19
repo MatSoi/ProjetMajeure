@@ -1,4 +1,4 @@
 *.meta
-Library/
-Temp/
+UnityClient/Library/
+UnityClient/Temp/
 UnityPackageManager/
