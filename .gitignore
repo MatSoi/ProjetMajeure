@@ -1,2 +1,4 @@
 *.meta
-
+Library/
+Temp/
+UnityPackageManager/
