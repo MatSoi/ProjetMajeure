@@ -152,6 +152,11 @@ public class playAnimation : MonoBehaviour
             _objToAnimate.GetComponent<Animation>().CrossFade("attack_short_001", 0.0f);
             _objToAnimate.GetComponent<Animation>().CrossFadeQueued("idle_combat");
         }
+
+        // send string
+        CreateString sendString = GameObject.Find("ScriptHolderCreateString").GetComponent<CreateString>();
+        sendString.Create(CreateString.OrderType.ATTACK,
+            _objToAnimate.name);
     }
 
     public void ClawAttack()
@@ -204,6 +209,11 @@ public class playAnimation : MonoBehaviour
             _objToAnimate.GetComponent<Animation>().CrossFade("damage_001", 0.0f);
             _objToAnimate.GetComponent<Animation>().CrossFadeQueued("idle_combat");
         }
+
+        // send string
+        CreateString sendString = GameObject.Find("ScriptHolderCreateString").GetComponent<CreateString>();
+        sendString.Create(CreateString.OrderType.GETHIT,
+            _objToAnimate.name);
     }
 
     public void Sleep()
@@ -279,6 +289,11 @@ public class playAnimation : MonoBehaviour
 
             _objToAnimate.GetComponent<Animation>().CrossFade("dead", 0.2f);
         }
+
+        // send string
+        CreateString sendString = GameObject.Find("ScriptHolderCreateString").GetComponent<CreateString>();
+        sendString.Create(CreateString.OrderType.DIE,
+            _objToAnimate.name);
     }
 
     public void Idle01()
@@ -293,6 +308,11 @@ public class playAnimation : MonoBehaviour
             _objToAnimate.GetComponent<Animation>().CrossFade("idle_normal", 0.0f);
             _objToAnimate.GetComponent<Animation>().CrossFadeQueued("idle_normal");
         }
+
+        // send string
+        CreateString sendString = GameObject.Find("ScriptHolderCreateString").GetComponent<CreateString>();
+        sendString.Create(CreateString.OrderType.IDLE1,
+            _objToAnimate.name);
     }
 
     public void Idle02()

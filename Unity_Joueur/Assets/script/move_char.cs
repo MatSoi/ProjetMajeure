@@ -11,20 +11,9 @@ public class move_char : MonoBehaviour {
     public GameObject _obj;
     private Vector3 _endPos;
 
-    // time to move from begin to end pos
-    private float lerpTime;
-    private float currentLerpTime = 0;
-
-    Rigidbody rb;
-    Transform character;
-
     // Use this for initialization
     void Start () {
-        //begin_pos = character_to_move.transform.position;
 
-
-        rb = GetComponent<Rigidbody>();
-        //character = GetComponent<Transform>();
     }
 
     void FixedUpdate()

@@ -22,22 +22,6 @@ public class ActionModels : MonoBehaviour {
     public bool _rotate = false;
     public float turnSpeed = 4.0f;      // Speed of rotation when mouse moves in along an axis
 
-    // time to move from begin to end pos
-    private float lerpTime;
-    private float currentLerpTime = 0;
-
-    Rigidbody rb;
-    Transform character;
-
-    // Use this for initialization
-    void Start()
-    {
-        //begin_pos = character_to_move.transform.position;
-
-        //rb = GetComponent<Rigidbody>();
-        //character = GetComponent<Transform>();
-    }
-
     void FixedUpdate()
     {
         if (MOVE_MODEL)
@@ -100,6 +84,11 @@ public class ActionModels : MonoBehaviour {
                 _movingObj.GetComponent<Transform>().position = Vector3.MoveTowards(_movingObj.GetComponent<Transform>().position,
                                                                                  _endPos,
                                                                                  _speed * Time.deltaTime);
+                // send string
+                CreateString sendString = GameObject.Find("ScriptHolderCreateString").GetComponent<CreateString>();
+                sendString.Create(CreateString.OrderType.TRANSLATE,
+                    _movingObj.name,
+                    _movingObj.GetComponent<Transform>().position.ToString());
             }
         }
 
@@ -108,6 +97,12 @@ public class ActionModels : MonoBehaviour {
             Vector3 pos = Camera.main.ScreenToViewportPoint(Input.mousePosition - mouseOrigin);
 
             _rotatingObj.transform.RotateAround(_rotatingObj.transform.position, Vector3.up, pos.x * turnSpeed);
+
+            // send string
+            CreateString sendString = GameObject.Find("ScriptHolderCreateString").GetComponent<CreateString>();
+            sendString.Create(CreateString.OrderType.ROTATE,
+                _rotatingObj.name,
+                _rotatingObj.GetComponent<Transform>().rotation.ToString());
 
             if (Input.GetMouseButtonUp(0))
                 _rotate = false;
@@ -132,6 +127,11 @@ public class ActionModels : MonoBehaviour {
 
     public void DeleteModel()
     {
+        // send string
+        CreateString sendString = GameObject.Find("ScriptHolderCreateString").GetComponent<CreateString>();
+        sendString.Create(CreateString.OrderType.DELETE,
+            _obj.name);
+
         GameObject.Destroy(_obj);
     }
 }
