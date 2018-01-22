@@ -2,8 +2,6 @@
 
 public class CalibrationOrders
 {
-
-	public int nbrOrder;
 	public string type;
 	public string nameObject;
 	public float[] values;
@@ -12,18 +10,15 @@ public class CalibrationOrders
 	public Camera leftCam;
 	public Camera rightCam;
 
-	public CalibrationOrders ()
-	{
-		nbrOrder = 0;
-	}
 
 	public CalibrationOrders (string[] order)
 	{
-		nbrOrder = int.Parse (order [0]);
-		type = order [1];
-		nameObject = order [2];
-		for (int i = 3; i < order.Length; i++)
-			values [i - 3] = float.Parse (order [i]);
+        Debug.Log(order[0]);
+		type = order[0];
+		nameObject = order[1];
+        values = new float[order.Length - 2];
+		for (int i = 2; i < order.Length; i++)
+			values[i - 2] = float.Parse(order[i]);
 	}
 
 	public void doCalibrationOrders ()

@@ -26,7 +26,7 @@ public class Scene : MonoBehaviour
     Orders currentOrder = new Orders();
 
 	private string calibrationOrder;
-	CalibrationOrders currentCalibrationOrder = new CalibrationOrders();
+	CalibrationOrders currentCalibrationOrder;
 
     public Scene()
     {
@@ -66,12 +66,12 @@ public class Scene : MonoBehaviour
 	{
 		calibrationOrder = udp2CppReceiver.GetComponent<UDP2CppReceive>().UDPGetPacket();
 		string[] calibrationOrders = calibrationOrder.Split('/');
+        Debug.Log(calibrationOrders);
 
 		if (calibrationOrders.Length > 1)
-		if (currentCalibrationOrder.nbrOrder != int.Parse(calibrationOrders[0]))
 		{
-			currentCalibrationOrder = new CalibrationOrders(calibrationOrders);
-			currentCalibrationOrder.doCalibrationOrders();
+			    currentCalibrationOrder = new CalibrationOrders(calibrationOrders);
+			    currentCalibrationOrder.doCalibrationOrders();
 		}
 	}
 }

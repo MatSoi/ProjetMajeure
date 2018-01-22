@@ -16,7 +16,7 @@ public class UDP2CppReceive : MonoBehaviour
     Thread receiveThread;
 
 	public GameStates gameState;
-    public GameObject signal;
+    //public GameObject signal;
 
     Process process;
 
@@ -28,12 +28,12 @@ public class UDP2CppReceive : MonoBehaviour
         ep = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 8888);
         udpClient = new UdpClient(8888);
         StartServer();
-        signal.GetComponentInChildren<Text>().text = Application.dataPath;
+        //signal.GetComponentInChildren<Text>().text = Application.dataPath;
     }
 
     void Update()
     {
-        signal.GetComponentInChildren<Text>().text = Application.dataPath + " " + nbrSignal.ToString();
+        //signal.GetComponentInChildren<Text>().text = Application.dataPath + " " + nbrSignal.ToString();
     }
 
     public void connectToCpp()
@@ -42,7 +42,6 @@ public class UDP2CppReceive : MonoBehaviour
         receiveThread.IsBackground = true;
         receiveThread.Start();
         receiveThread.Abort();
-		gameState = GameStates.StartPhase;
     }
 
     void ReceiveData()
