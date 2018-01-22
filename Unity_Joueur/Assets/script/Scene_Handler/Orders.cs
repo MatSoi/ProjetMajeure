@@ -38,7 +38,10 @@ public class Orders  {
                 break;
             case "DISPLAY":
                 Player p = GameObject.Find(nameObject).GetComponent<Player>();
-                p.ToggleBars();
+                if(value == Vector3.zero)
+                    p.ToggleBars();
+                if (value == Vector3.one)
+                    p.TogglePanels();
                 break;
             default:
                 break;

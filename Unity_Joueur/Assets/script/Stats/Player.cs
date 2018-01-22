@@ -7,6 +7,9 @@ public class Player : Character
     private GameObject Bars;
     private bool barsEnabled = true;
 
+    private GameObject Panels;
+    private bool panelsEnabled = true;
+
     //delete start
     private void Awake()
     {
@@ -14,6 +17,7 @@ public class Player : Character
         energy.Initialize();
         shield.Initialize();
         Bars = GameObject.Find("Bars");
+        Panels = GameObject.Find("Panels");
     }
 
     private void Start()
@@ -93,5 +97,11 @@ public class Player : Character
     {
         this.Bars.SetActive(!barsEnabled);
         barsEnabled = !barsEnabled;
+    }
+
+    public void TogglePanels()
+    {
+        this.Panels.SetActive(!panelsEnabled);
+        panelsEnabled = !panelsEnabled;
     }
 }

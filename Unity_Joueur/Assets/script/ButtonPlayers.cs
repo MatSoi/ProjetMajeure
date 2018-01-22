@@ -10,4 +10,11 @@ public class ButtonPlayers : MonoBehaviour {
         sendString.Create(OrderType.DISPLAY,
             "Player", Vector3.zero);
     }
+
+    public void DisplayPlayerEquipment()
+    {
+        CreateString sendString = GameObject.Find("ScriptHolderCreateString").GetComponent<CreateString>();
+        sendString.Create(OrderType.DISPLAY,
+            "Player", Vector3.one);
+    }
 }
