@@ -4,24 +4,27 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 using System.Diagnostics;
-using System.Collections;
-using UnityEngine.UI;
 
+/**
+ * Classe UDP2CppReceive
+ * Demmarre en arriere plan le programme en CPP responsable de la calibration
+ * Etabli la liaison UDP locale avec ce programme
+ * Fonction d acces aux packets recus : public string UDPGetPacket()
+ * */
 public class UDP2CppReceive : MonoBehaviour
 {
-    static IPEndPoint ep;
-    static UdpClient udpClient;
-    static byte[] receiveBytes = new byte[32];
-    static string returnData = "";
-    Thread receiveThread;
+    public GameStates gameState;    // Assure que la scene ne considere pas les messages sans connexion valide
+        
+    static UdpClient udpClient;     // Module UDP
+    static IPEndPoint ep;           // Remote UDP associe a IP et Port
+    static string returnData = "";  // String recu en UDP
+    Thread receiveThread;           // Thread de reception de l UDP
+    Process process;                // Process de lancement du code CPP de calibration
+    int nbrSignal = 0;              // valeur de test -- a supprimer
 
-	public GameStates gameState;
-    //public GameObject signal;
-
-    Process process;
-
-    int nbrSignal = 0;
-
+    /**
+     * Initialise la remote UDP et lance le programme CPP
+     * */
     void Start()
     {
 		gameState = GameStates.StartPhase;
@@ -36,6 +39,10 @@ public class UDP2CppReceive : MonoBehaviour
         //signal.GetComponentInChildren<Text>().text = Application.dataPath + " " + nbrSignal.ToString();
     }
 
+    /**
+     * Fonction liee au bouton Connect To Cpp du Menu Cpp
+     * Demarre le thread reception UDP
+     * */
     public void connectToCpp()
     {
         receiveThread = new Thread(ReceiveData);
@@ -44,18 +51,24 @@ public class UDP2CppReceive : MonoBehaviour
         receiveThread.Abort();
     }
 
+    /**
+     * Thread de reception UDP
+     * */
     void ReceiveData()
     {
-		gameState = GameStates.GamePhase;
         while (true)
         {
-            receiveBytes = udpClient.Receive(ref ep);
+            byte[] receiveBytes = udpClient.Receive(ref ep);    // fonction Unity de reception, appelle bloquant
+            gameState = GameStates.GamePhase;                   // si la reception est bonne, on peut considerer les packets recus
             returnData = Encoding.UTF8.GetString(receiveBytes);
-            print(returnData);
-            nbrSignal++;
+            //print(returnData);
+            //nbrSignal++;
         }
     }
 
+    /**
+     * Fonction publique d acces aux packets recus
+     * */
 	public string UDPGetPacket() {
 		return returnData;
 	}
@@ -75,9 +88,8 @@ public class UDP2CppReceive : MonoBehaviour
     {
         string StartupPath = Application.dataPath;
         process = new Process();
-        process.StartInfo.FileName = StartupPath + "/serveur_udp.exe";
-        process.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-
+        process.StartInfo.FileName = StartupPath + "/serveur_udp.exe";  // l exe doit se trouver dans le dossier de lancement de l application
+        process.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;      // la fenetre du programme n est pas affichee
         process.Start();
     }
 }

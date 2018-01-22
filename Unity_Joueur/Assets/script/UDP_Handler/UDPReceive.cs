@@ -6,15 +6,21 @@ using System.Net.Sockets;
 using System.Threading;
 using UnityEngine.UI;
 
+/**
+ * Classe UDPReceive
+ * Demarre une connexion UDP en thread separe.
+ * Fonction d acces aux messages recus : public string UDPGetPacket()
+ * */
 public class UDPReceive : MonoBehaviour {
-    Thread receiveThread;
-    UdpClient client;
-	public InputField IP;
-    public InputField port;
-    string strReceiveUDP = "";
-    bool reception = false;
-    public GameObject outText;
-    public GameStates gameState;
+	public InputField IP;           // IP du server
+    public InputField port;         // Port du server
+    public GameObject outText;      // Popup de verification, affiche le message recu a l ecran
+    public GameStates gameState;    // Assure que la scene ne considere pas les messages sans connexion valide
+
+    Thread receiveThread;           // Thread de reception des packets UDP
+    UdpClient client;               // Module UDP
+    string strReceiveUDP = "";      // Message recu par la liaison UDP
+    bool reception = false;         // Permet l affichage du popup seuelement une fois par reception
 
     public void Start() {
         gameState = GameStates.StartPhase;
@@ -28,6 +34,10 @@ public class UDPReceive : MonoBehaviour {
         }
     }
 
+    /**
+     * Fonction lier au bouton connect du Menu UDP Client
+     * Ferme la liaison UDP si elle existait deja et en ouvre une autre
+     * */
     public void connectClient() {
         closeThreadUDP();
         printOut("Client Connection");
@@ -36,18 +46,20 @@ public class UDPReceive : MonoBehaviour {
         receiveThread.Start();
     }
 
+    /**
+     * Thread de reception du packet UDP
+     * */
     private void ReceiveData() {
         client = new UdpClient(int.Parse(port.text));
-		
+        IPEndPoint remoteEndPoint = new IPEndPoint(IPAddress.Parse(IP.text), int.Parse(port.text));
+
         while (true) {
             try {
-                IPEndPoint remoteEndPoint = new IPEndPoint(IPAddress.Parse(IP.text), int.Parse(port.text));
-                byte[] data = client.Receive(ref remoteEndPoint);
-                gameState = GameStates.GamePhase;
+                byte[] data = client.Receive(ref remoteEndPoint);   // appelle de reception bloquant
+                gameState = GameStates.GamePhase;                   // si la reception a reussi, le jeu passe en gamephase
                 string text = Encoding.UTF8.GetString(data);
                 strReceiveUDP = text;
                 reception = true;
-                //Debug.Log(strReceiveUDP);
             }
             catch (Exception err) {
                 print(err.ToString());
@@ -55,6 +67,7 @@ public class UDPReceive : MonoBehaviour {
         }
     }
 
+    // Fonction public permettant d acceder au packet recu
     public string UDPGetPacket() {
         return strReceiveUDP;
     }

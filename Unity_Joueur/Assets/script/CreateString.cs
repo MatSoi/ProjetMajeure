@@ -28,7 +28,7 @@ public class CreateString : MonoBehaviour {
             Send();
 	}
 
-    public void Create(OrderType order, string objName, string values = "")
+    public void Create(OrderType order, string objName, string values = " ")
     {
         //! order : nbrOrder/TypeOfAction/ObjectIndex(except when instantiate =object.name)/values
         // values can be:

@@ -37,6 +37,7 @@ public class Orders  {
                 Object.Instantiate(prefab);
                 break;
             default:
+                Debug.Log("YOLO");
                 break;
         }
     }

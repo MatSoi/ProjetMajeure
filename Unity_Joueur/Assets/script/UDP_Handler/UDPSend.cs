@@ -5,15 +5,24 @@ using System.Net;
 using System.Net.Sockets;
 using UnityEngine.UI;
 
+/**
+ * Classe UDPSend
+ * Demarre une connexion UDP en thread principal (fonction send non bloquante)
+ * Fonction publique d envoi de message : public void sendString(string message)
+ * */
 public class UDPSend : MonoBehaviour {
-    public InputField IP;
-    public InputField port;
-    public GameObject outText;
-    IPEndPoint remoteEndPoint;
-    UdpClient client;
-    string strMessage = "";
-    int test = 0;
+    public InputField IP;       // IP du client
+    public InputField port;     // Port du client
+    public GameObject outText;  // Popup de verification, affiche le message envoye a l ecran
 
+    UdpClient client;           // Module UDP
+    IPEndPoint remoteEndPoint;  // Remote UDP associe a IP et Port
+    int test = 0;               // chiffre pour les envoi de test
+
+    /**
+    * Fonction lier au bouton connect du Menu UDP Server
+    * Ferme la liaison UDP si elle existait deja et en ouvre une autre
+    * */
     public void connectServer() {
         closeServer();
         printOut("Server Connection");
@@ -21,12 +30,14 @@ public class UDPSend : MonoBehaviour {
         client = new UdpClient();
     }
 
+    /**
+     * Envoi le message en parametre par la liaison UDP
+     * */
     public void sendString(string message) {
         try {
-            strMessage = message;
-            byte[] data = Encoding.UTF8.GetBytes(strMessage);
-            client.Send(data, data.Length, remoteEndPoint);
-            printOut(strMessage);
+            byte[] data = Encoding.UTF8.GetBytes(message);
+            client.Send(data, data.Length, remoteEndPoint); // fonction d envoi de Unity, non bloquante
+            printOut(message);                              // popup du message envoye
         } 
 		catch (Exception err) {
             print(err.ToString());
@@ -41,6 +52,10 @@ public class UDPSend : MonoBehaviour {
         if (client != null) client.Close();
     }
 
+    /**
+     * A chaque fois que l on appuie sur le bouton Send Test du Menu Server
+     * On envoi un ciffre que l'on incremente.
+     * */
     public void sendTest() {
         sendString(test.ToString());
         ++test;
