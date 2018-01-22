@@ -150,7 +150,7 @@ namespace Area730.UpdatesManager
         
         private static string[] GetPluginsDescriptorPaths()
         {
-            string[] dirs = Directory.GetDirectories(Path.Combine("Assets", "Area730"));
+            string[] dirs = Directory.GetDirectories(Path.Combine("Assets", "Sprites/Area730"));
 
             List<string> descriptors = new List<string>();
 
@@ -336,7 +336,7 @@ namespace Area730.UpdatesManager
         private static readonly int WindowHeight = 500;
         private static readonly string WindowTitle = "Area730 Update Manager";
 
-        private static readonly string eventTrackUrl = "https://labs.area730.com/registerEvent?type=assetstoreUpdatesManager&eventName=";
+        //private static readonly string eventTrackUrl = "https://labs.area730.com/registerEvent?type=assetstoreUpdatesManager&eventName=";
 
         public static void RegisterEvent(string name)
         {
