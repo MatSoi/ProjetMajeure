@@ -272,6 +272,11 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: sendTest
       objectReference: {fileID: 0}
+    - target: {fileID: 114087305084641822, guid: e7173c26f20c30547b74ff132709786a,
+        type: 2}
+      propertyPath: m_Text
+      value: 8889
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e7173c26f20c30547b74ff132709786a, type: 2}
   m_IsPrefabParent: 0
