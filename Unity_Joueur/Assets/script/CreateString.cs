@@ -5,19 +5,6 @@ public class CreateString : MonoBehaviour {
 
     public GameObject UDPSender;
 
-    public enum OrderType {
-        ROTATE,
-        TRANSLATE,
-
-        INSTANTIATE,
-        DELETE,
-
-        ATTACK,
-        GETHIT,
-        DIE,
-        IDLE1
-    };
-
     public List<string> Buffer;
     public string currentString;
     public int nbrOrder = 1;
@@ -28,7 +15,7 @@ public class CreateString : MonoBehaviour {
             Send();
 	}
 
-    public void Create(OrderType order, string objName, string values = "")
+    public void Create(OrderType order, string objName, Vector3 values)
     {
         //! order : nbrOrder/TypeOfAction/ObjectIndex(except when instantiate =object.name)/values
         // values can be:
@@ -41,7 +28,10 @@ public class CreateString : MonoBehaviour {
         // send name of object to instantiate/rotate/delete/...
         currentString += objName + "/";
         
-        currentString += values; // valeurs
+        //Values
+        currentString += values.x.ToString() + "/";
+        currentString += values.y.ToString() + "/";
+        currentString += values.z.ToString();
 
         // load buffer
         Buffer.Add(currentString);
@@ -56,3 +46,19 @@ public class CreateString : MonoBehaviour {
         Buffer.RemoveAt(0);
     }
 }
+
+public enum OrderType
+{
+    ROTATE,
+    TRANSLATE,
+
+    INSTANTIATE,
+    DELETE,
+
+    ATTACK,
+    GETHIT,
+    DIE,
+    IDLE1,
+
+    DISPLAY
+};

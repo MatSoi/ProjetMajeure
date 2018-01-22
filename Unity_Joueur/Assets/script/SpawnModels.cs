@@ -39,8 +39,8 @@ public class SpawnModels : MonoBehaviour
 
         // send string
         CreateString sendString = GameObject.Find("ScriptHolderCreateString").GetComponent<CreateString>();
-        sendString.Create(CreateString.OrderType.INSTANTIATE,
+        sendString.Create(OrderType.INSTANTIATE,
             instantiatedObj.name,
-            instantiatedObj.GetComponent<Transform>().position.ToString());
+            instantiatedObj.GetComponent<Transform>().position);
     }
 }

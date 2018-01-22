@@ -155,8 +155,8 @@ public class playAnimation : MonoBehaviour
 
         // send string
         CreateString sendString = GameObject.Find("ScriptHolderCreateString").GetComponent<CreateString>();
-        sendString.Create(CreateString.OrderType.ATTACK,
-            _objToAnimate.name);
+        sendString.Create(OrderType.ATTACK,
+            _objToAnimate.name, Vector3.zero);
     }
 
     public void ClawAttack()
@@ -212,8 +212,8 @@ public class playAnimation : MonoBehaviour
 
         // send string
         CreateString sendString = GameObject.Find("ScriptHolderCreateString").GetComponent<CreateString>();
-        sendString.Create(CreateString.OrderType.GETHIT,
-            _objToAnimate.name);
+        sendString.Create(OrderType.GETHIT,
+            _objToAnimate.name, Vector3.zero);
     }
 
     public void Sleep()
@@ -292,8 +292,8 @@ public class playAnimation : MonoBehaviour
 
         // send string
         CreateString sendString = GameObject.Find("ScriptHolderCreateString").GetComponent<CreateString>();
-        sendString.Create(CreateString.OrderType.DIE,
-            _objToAnimate.name);
+        sendString.Create(OrderType.DIE,
+            _objToAnimate.name, Vector3.zero);
     }
 
     public void Idle01()
@@ -311,8 +311,8 @@ public class playAnimation : MonoBehaviour
 
         // send string
         CreateString sendString = GameObject.Find("ScriptHolderCreateString").GetComponent<CreateString>();
-        sendString.Create(CreateString.OrderType.IDLE1,
-            _objToAnimate.name);
+        sendString.Create(OrderType.IDLE1,
+            _objToAnimate.name, Vector3.zero);
     }
 
     public void Idle02()

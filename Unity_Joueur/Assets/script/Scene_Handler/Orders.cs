@@ -36,7 +36,12 @@ public class Orders  {
                 GameObject prefab = (GameObject)Resources.Load("Prefab/" + name_object[0], typeof(GameObject));
                 Object.Instantiate(prefab);
                 break;
+            //case "DISPLAY":
+            //    GameObject.Find(nameObject).SetActive(false);
+            //    break;
             default:
+                if(GameObject.Find(nameObject) != null)
+                    GameObject.Find(nameObject).SetActive(false);
                 break;
         }
     }

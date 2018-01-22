@@ -86,9 +86,9 @@ public class ActionModels : MonoBehaviour {
                                                                                  _speed * Time.deltaTime);
                 // send string
                 CreateString sendString = GameObject.Find("ScriptHolderCreateString").GetComponent<CreateString>();
-                sendString.Create(CreateString.OrderType.TRANSLATE,
+                sendString.Create(OrderType.TRANSLATE,
                     _movingObj.name,
-                    _movingObj.GetComponent<Transform>().position.ToString());
+                    _movingObj.GetComponent<Transform>().position);
             }
         }
 
@@ -100,9 +100,9 @@ public class ActionModels : MonoBehaviour {
 
             // send string
             CreateString sendString = GameObject.Find("ScriptHolderCreateString").GetComponent<CreateString>();
-            sendString.Create(CreateString.OrderType.ROTATE,
+            sendString.Create(OrderType.ROTATE,
                 _rotatingObj.name,
-                _rotatingObj.GetComponent<Transform>().rotation.ToString());
+                _rotatingObj.GetComponent<Transform>().eulerAngles);
 
             if (Input.GetMouseButtonUp(0))
                 _rotate = false;
@@ -129,8 +129,8 @@ public class ActionModels : MonoBehaviour {
     {
         // send string
         CreateString sendString = GameObject.Find("ScriptHolderCreateString").GetComponent<CreateString>();
-        sendString.Create(CreateString.OrderType.DELETE,
-            _obj.name);
+        sendString.Create(OrderType.DELETE,
+            _obj.name, Vector3.zero);
 
         GameObject.Destroy(_obj);
     }
