@@ -1,7 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
+/**
+ * Class CloseOptions
+ * Classe rapide qui ferme et affiche les options quand on appuie sur la croix
+ * */
 public class CloseOptions : MonoBehaviour {
     public GameObject[] Menus;
 

@@ -40,8 +40,7 @@ public class Orders  {
             //    GameObject.Find(nameObject).SetActive(false);
             //    break;
             default:
-                if(GameObject.Find(nameObject) != null)
-                    GameObject.Find(nameObject).SetActive(false);
+                Debug.Log("YOLO");
                 break;
         }
     }
