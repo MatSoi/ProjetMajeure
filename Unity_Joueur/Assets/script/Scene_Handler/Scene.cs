@@ -1,39 +1,23 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
+using System.IO;
+using System;
 
 public class Scene : MonoBehaviour
 {
+
     public GameObject udpReceiver;
 	public GameObject udp2CppReceiver;
-
-    [SerializeField]
-	private GameObject lCamera;
-    [SerializeField]
-    private GameObject rCamera;
-    [SerializeField]
-    private GameObject board;
-    [SerializeField]
-    private GameObject player1;
-    [SerializeField]
-    private GameObject player2;
-    [SerializeField]
-    private GameObject player3;
 
     private string order;
     Orders currentOrder = new Orders();
 
-	private string calibrationOrder;
+	private string calibrationString;
 	CalibrationOrders currentCalibrationOrder;
 
     public Scene()
     {
 		//AndroidJavaClass jc = new AndroidJavaClass("java.lang.Object");
-
-    }
-
-
-    // Use this for initialization
-    void Start()
-    {
     }
 
     // Update is called once per frame
@@ -60,14 +44,12 @@ public class Scene : MonoBehaviour
 
 	void treatCalibrationData()
 	{
-		calibrationOrder = udp2CppReceiver.GetComponent<UDP2CppReceive>().UDPGetPacket();
-		string[] calibrationOrders = calibrationOrder.Split('/');
-        Debug.Log(calibrationOrders);
-
-		if (calibrationOrders.Length > 1)
+		calibrationString = udp2CppReceiver.GetComponent<UDP2CppReceive>().UDPGetPacket();
+		string[] calibrationOrders = calibrationString.Split('_');
+		if (calibrationOrders.Length >= 1)
 		{
-			    currentCalibrationOrder = new CalibrationOrders(calibrationOrders);
-			    currentCalibrationOrder.doCalibrationOrders();
+			currentCalibrationOrder = new CalibrationOrders(calibrationOrders);
+			currentCalibrationOrder.doCalibrationOrders();
 		}
 	}
 }
