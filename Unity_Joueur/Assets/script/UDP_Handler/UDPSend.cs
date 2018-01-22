@@ -9,7 +9,6 @@ public class UDPSend : MonoBehaviour {
     public InputField IP;
     public InputField port;
     public GameObject outText;
-    public GameObject menu;
     IPEndPoint remoteEndPoint;
     UdpClient client;
     string strMessage = "";
@@ -52,8 +51,4 @@ public class UDPSend : MonoBehaviour {
 		outText.GetComponentInChildren<Text>().text = myText;
 		outText.GetComponent<Animation> ().Play ();
 	}
-
-    public void closeOptions() {
-        menu.SetActive(false);
-    }
 }

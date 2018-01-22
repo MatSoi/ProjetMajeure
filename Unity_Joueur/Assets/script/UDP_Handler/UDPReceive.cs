@@ -11,7 +11,6 @@ public class UDPReceive : MonoBehaviour {
     UdpClient client;
 	public InputField IP;
     public InputField port;
-    public GameObject menu;
     string strReceiveUDP = "";
     bool reception = false;
     public GameObject outText;
@@ -44,6 +43,7 @@ public class UDPReceive : MonoBehaviour {
             try {
                 IPEndPoint remoteEndPoint = new IPEndPoint(IPAddress.Parse(IP.text), int.Parse(port.text));
                 byte[] data = client.Receive(ref remoteEndPoint);
+                gameState = GameStates.GamePhase;
                 string text = Encoding.UTF8.GetString(data);
                 strReceiveUDP = text;
                 reception = true;
@@ -77,9 +77,4 @@ public class UDPReceive : MonoBehaviour {
 		outText.GetComponentInChildren<Text>().text = myText;
 		outText.GetComponent<Animation> ().Play ();
 	}
-
-    public void closeOptions() {
-        gameState = GameStates.GamePhase;
-        menu.SetActive(false);
-    }
 }
