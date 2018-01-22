@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Player : Character
 {
-
+    private GameObject Bars;
+    private bool barsEnabled = true;
 
     //delete start
     private void Awake()
@@ -12,6 +13,7 @@ public class Player : Character
         health.Initialize();
         energy.Initialize();
         shield.Initialize();
+        Bars = GameObject.Find("Bars");
     }
 
     private void Start()
@@ -85,5 +87,11 @@ public class Player : Character
 
         }
 
+    }
+
+    public void ToggleBars()
+    {
+        this.Bars.SetActive(!barsEnabled);
+        barsEnabled = !barsEnabled;
     }
 }

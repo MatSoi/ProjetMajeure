@@ -8,6 +8,6 @@ public class ButtonPlayers : MonoBehaviour {
     {
         CreateString sendString = GameObject.Find("ScriptHolderCreateString").GetComponent<CreateString>();
         sendString.Create(OrderType.DISPLAY,
-            "Bars", Vector3.zero);
+            "Player", Vector3.zero);
     }
 }

@@ -30,17 +30,17 @@ public class Orders  {
             case "T":
                 GameObject.Find(nameObject).transform.Translate(value);
                 break;
-            case "I":
+            case "INSTANTIATE":
                 string[] name_object = nameObject.Split('_');
                 Debug.Log(name_object[0]);
                 GameObject prefab = (GameObject)Resources.Load("Prefab/" + name_object[0], typeof(GameObject));
                 Object.Instantiate(prefab);
                 break;
-            //case "DISPLAY":
-            //    GameObject.Find(nameObject).SetActive(false);
-            //    break;
+            case "DISPLAY":
+                Player p = GameObject.Find(nameObject).GetComponent<Player>();
+                p.ToggleBars();
+                break;
             default:
-                Debug.Log("YOLO");
                 break;
         }
     }
