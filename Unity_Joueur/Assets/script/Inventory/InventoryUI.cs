@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-//links the database to a UI
+/*
+ * Links the database to a UI
+ */ 
 public class InventoryUI : MonoBehaviour {
 
     //UI parameters
@@ -45,6 +47,7 @@ public class InventoryUI : MonoBehaviour {
         AddItem(1);
     }
 	
+    //Adds an item to the inventory
     public void AddItem(int id)
     {
         Item itemToAdd = database.FetchItemByID(id); //grabs in the database the item to add
@@ -74,6 +77,7 @@ public class InventoryUI : MonoBehaviour {
         }
     }
 
+    //Check if a determined item is in the inventory
     private int isInInventory(int id)
     {
         for(int i=0; i<items.Count; i++)

@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-//manages dropping in inventory/equipment both graphical and internally
+/**
+ * Slot management class, dropping in inventory/equipment modifies both graphical aspect and attributes of InventoryUI/EquipmentUI
+ */
 public class Slot : MonoBehaviour, IDropHandler {
     public int slotid;
     private InventoryUI inv;
@@ -13,7 +15,7 @@ public class Slot : MonoBehaviour, IDropHandler {
 
     private void Start()
     {
-        inv = GameObject.Find("Inventory").GetComponent<InventoryUI>();
+        inv = GameObject.Find("Inventory").GetComponent<InventoryUI>();     //Both class are linked to the same empty gameobject called "Inventory"
         equip = GameObject.Find("Inventory").GetComponent<EquipmentUI>();
     }
 
@@ -22,7 +24,7 @@ public class Slot : MonoBehaviour, IDropHandler {
         ItemData droppedItem = eventData.pointerDrag.GetComponent<ItemData>();
         Transform item = null;
 
-        //Test to determine dropplace (modified if equipment)
+        //Test to determine dropplace (modified if dropping in equipment slot)
         if(slotid < equip.slotAmount)
             if (Vector2.Distance(inv.slots[slotid].transform.position, eventData.position) > Vector2.Distance(equip.slots[slotid].transform.position, eventData.position))
                 droppedItem.dropplace = 1;
@@ -42,7 +44,7 @@ public class Slot : MonoBehaviour, IDropHandler {
         }
         else //ends in equipment
         {
-            if(slotid < equip.slotAmount) //verification of the bounds
+            if(slotid < equip.slotAmount) //verification of the bounds (equipment is shorter than inventory)
             {
                 if (equip.items[slotid].ID != -1)//there is an item
                 {

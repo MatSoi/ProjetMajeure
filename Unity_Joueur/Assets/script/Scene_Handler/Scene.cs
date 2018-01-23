@@ -4,12 +4,12 @@ using System.IO;
 using System;
 
 /**
- * Classe de gestion de la communication avec la scène. Reception des ordres de l'UDP MJ et de l'UDP Calibration.
+ * Communication Manager of the scene. Receiving orders from game master UDP and Calibration UDP
  **/ 
 public class Scene : MonoBehaviour
 {
-    public GameObject udpReceiver;//Reference vers le receiver UDP MJ
-	public GameObject udp2CppReceiver;//Reference vers le receiver UDP de l'application de Calibration
+    public GameObject udpReceiver;//Reference to game master UDP receiver
+	public GameObject udp2CppReceiver;//Reference to UDP receiver for Calibration app
 
     private string order;
     Orders currentOrder = new Orders();
@@ -17,19 +17,18 @@ public class Scene : MonoBehaviour
 	private string calibrationString;
 	CalibrationOrders currentCalibrationOrder;
 
-    // Update is called once per frame
     void Update()
     {
-        if (udpReceiver.GetComponent<UDPReceive>().gameState == GameStates.GamePhase)//Si la connection UDP MJ est lancée
-            treatOrder();//Traite l'ordre en provenance du MJ
-		if (udp2CppReceiver.GetComponent<UDP2CppReceive>().gameState == GameStates.GamePhase)//Si la connection UDP Calibration est lancée
-			treatCalibrationData();//Traite l'ordre en provenance de la calibration
+        if (udpReceiver.GetComponent<UDPReceive>().gameState == GameStates.GamePhase)//when GM UDP connection launched
+            treatOrder();//treats GM orders
+		if (udp2CppReceiver.GetComponent<UDP2CppReceive>().gameState == GameStates.GamePhase)//when UDP Calibration connection is launched
+			treatCalibrationData();//treats orders from the calibration app
     }
 
 
 	/**
-	 * Fonction de traitement de l'ordre en provenance du MJ, séparation de l'ordre selon les '/' et extractions des sous strings
-	 * Creation d'un ordre avec les sous éléments du string recu sur l'UDP
+     * Orders Treatment function : Treats orders from GM, orders divided by '/' and extraction of sub-strings
+     * Order creation with sub-elements of UDP received string
 	 **/ 
     void treatOrder()
     {
@@ -45,8 +44,8 @@ public class Scene : MonoBehaviour
     }
 
 	/**
-	 * Fonction de traitement de l'ordre en provenance de la calibration, séparation du string recu selon les '_' et extraction des sous ordres
-	 * Creation d'un ordre de calibration avec les sous ordres recus sur l'UDP
+     * Orders Treatment function : Treats orders from calibration, orders divided by '_' and extraction of sub-orders
+     * Calibration Order creation with sub-orders received from UDP
 	 **/
 	void treatCalibrationData()
 	{

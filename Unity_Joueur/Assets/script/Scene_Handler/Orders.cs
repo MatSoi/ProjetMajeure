@@ -1,17 +1,21 @@
 ﻿using UnityEngine;
 
+/**
+ * Orders management class, contains behaviour for each order case
+ **/
 public class Orders  {
 
-    public int nbrOrder;
-    private string type;
-    private string nameObject;
-    private Vector3 value;
+    public int nbrOrder;        //the indice of the current treated order
+    private string type;        //determines the order to be done
+    private string nameObject;  //contains the name of the affected entity
+    private Vector3 value;      //contains additionnal information for specific orders
 
     public Orders ()
     {
         nbrOrder = -1;
     }
 
+    //Initialize from a received order by UDP
     public Orders(string[] order)
     {
         nbrOrder   = int.Parse(order[0]);
@@ -20,6 +24,7 @@ public class Orders  {
         value      = new Vector3(float.Parse(order[3]), float.Parse(order[4]), float.Parse(order[5]));
     }
 
+    //Execute the order (66) regarding it's type and informations contained in 'value'
     public void doOrder()
     {
         switch(type)

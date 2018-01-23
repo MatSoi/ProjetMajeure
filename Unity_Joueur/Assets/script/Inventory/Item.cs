@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-//gathers every information to be found about an item
+/**
+ * Gathers every information to be found about an item
+ */
 public class Item {
 
     public int ID { get; set; }
