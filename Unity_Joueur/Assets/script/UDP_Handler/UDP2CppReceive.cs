@@ -20,7 +20,7 @@ public class UDP2CppReceive : MonoBehaviour
     static string returnData = "";  // String recu en UDP
     Thread receiveThread;           // Thread de reception de l UDP
     Process process;                // Process de lancement du code CPP de calibration
-    int nbrSignal = 0;              // valeur de test -- a supprimer
+    //int nbrSignal = 0;              // valeur de test -- a supprimer
 
     /**
      * Initialise la remote UDP et lance le programme CPP
