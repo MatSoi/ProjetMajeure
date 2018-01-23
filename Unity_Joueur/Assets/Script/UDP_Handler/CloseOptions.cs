@@ -6,6 +6,7 @@
  * */
 public class CloseOptions : MonoBehaviour {
     public GameObject[] Menus;
+    public GameObject[] MenusOff;
 
     bool visible = false;
 
@@ -14,6 +15,10 @@ public class CloseOptions : MonoBehaviour {
         foreach (GameObject menu in Menus)
         {
             menu.SetActive(visible);
+        }
+        foreach (GameObject menu in MenusOff)
+        {
+            menu.SetActive(!visible);
         }
         visible = !visible;
     }

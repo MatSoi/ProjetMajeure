@@ -27,7 +27,7 @@ public class CreateString : MonoBehaviour {
 
         // send name of object to instantiate/rotate/delete/...
         currentString += objName + "/";
-        
+
         //Values
         currentString += values.x.ToString() + "/";
         currentString += values.y.ToString() + "/";

@@ -315,6 +315,7 @@ MonoBehaviour:
   Menus:
   - {fileID: 1792696413}
   - {fileID: 1317089426}
+  MenusOff: []
 --- !u!4 &96504911
 Transform:
   m_ObjectHideFlags: 0
@@ -2184,6 +2185,11 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1496070555}
+    - target: {fileID: 114698487693142700, guid: b0bc5e76be9dc2b4e94081f575add589,
+        type: 2}
+      propertyPath: m_Text
+      value: 127.0.0.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b0bc5e76be9dc2b4e94081f575add589, type: 2}
   m_IsPrefabParent: 0
@@ -2355,7 +2361,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 925629792}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 654.9, y: 122.26, z: 21.46}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 315529344}
@@ -2378,12 +2384,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   udpReceiver: {fileID: 1496070554}
   udp2CppReceiver: {fileID: 1684091931}
-  lCamera: {fileID: 1564763128}
-  rCamera: {fileID: 228469520}
-  board: {fileID: 1046345377}
-  player1: {fileID: 315529340}
-  player2: {fileID: 1879892228}
-  player3: {fileID: 490424871}
 --- !u!1 &928963180
 GameObject:
   m_ObjectHideFlags: 0
@@ -2851,7 +2851,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1046345378
 Transform:
   m_ObjectHideFlags: 0
@@ -2859,8 +2859,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1046345377}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.66, y: -0, z: 29.49}
+  m_LocalScale: {x: 16.78677, y: 0.9999995, z: 15.112371}
   m_Children: []
   m_Father: {fileID: 925629793}
   m_RootOrder: 3
@@ -3368,8 +3368,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 274.9, y: -71.948}
-  m_SizeDelta: {x: 174.98999, y: 143.896}
+  m_AnchoredPosition: {x: 274.9, y: -29.51}
+  m_SizeDelta: {x: 174.99, y: 59.02}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1317089428
 MonoBehaviour:
@@ -5065,7 +5065,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -10.6}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2011648833

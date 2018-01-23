@@ -28,7 +28,7 @@ public class SpawnModels : MonoBehaviour
             Terrain.GetComponentInParent<Transform>());
 
         // Rename object : tag /*or prefab name*/ + indexInstance
-        instantiatedObj.name = instantiatedObj.tag /*ClickedButtonName*/ + indexInstance.ToString();
+        instantiatedObj.name = instantiatedObj.tag /*ClickedButtonName*/  + "_" + indexInstance.ToString();
         indexInstance++;
 
         // add list to toggle selection

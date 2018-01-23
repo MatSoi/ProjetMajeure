@@ -3,9 +3,9 @@
 public class Orders  {
 
     public int nbrOrder;
-    public string type;
-    public string nameObject;
-    public Vector3 value;
+    private string type;
+    private string nameObject;
+    private Vector3 value;
 
     public Orders ()
     {
@@ -15,7 +15,7 @@ public class Orders  {
     public Orders(string[] order)
     {
         nbrOrder   = int.Parse(order[0]);
-		type = order [1];
+		type       = order [1];
         nameObject = order[2];
         value      = new Vector3(float.Parse(order[3]), float.Parse(order[4]), float.Parse(order[5]));
     }
@@ -24,17 +24,20 @@ public class Orders  {
     {
         switch(type)
         {
-            case "R":
-                GameObject.Find(nameObject).transform.Rotate(value);
+            case "ROTATE":
+                GameObject.Find(nameObject).transform.eulerAngles = value;
                 break;
-            case "T":
+            case "TRANSLATE":
                 GameObject.Find(nameObject).transform.Translate(value);
                 break;
             case "INSTANTIATE":
                 string[] name_object = nameObject.Split('_');
                 Debug.Log(name_object[0]);
                 GameObject prefab = (GameObject)Resources.Load("Prefab/" + name_object[0], typeof(GameObject));
-                Object.Instantiate(prefab);
+                GameObject myobject = Object.Instantiate(prefab);
+                myobject.transform.parent = GameObject.Find("Scene").transform;
+                myobject.transform.position = value;
+                myobject.name = nameObject;
                 break;
             case "DISPLAY":
                 Player p = GameObject.Find(nameObject).GetComponent<Player>();
@@ -42,6 +45,9 @@ public class Orders  {
                     p.ToggleBars();
                 if (value == Vector3.one)
                     p.TogglePanels();
+                break;
+            case "DELETE":
+                Object.Destroy(GameObject.Find(nameObject));
                 break;
             default:
                 break;
