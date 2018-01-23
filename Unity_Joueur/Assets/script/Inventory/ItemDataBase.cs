@@ -5,6 +5,7 @@ using LitJson;
 using System.IO;
 using System;
 
+//creates the item data base from a json file located in StreamingAssets
 public class ItemDataBase : MonoBehaviour {
     private List<Item> database = new List<Item>();
     private JsonData itemData;

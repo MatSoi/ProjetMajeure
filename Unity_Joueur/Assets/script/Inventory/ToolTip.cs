@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//generates the details displayed when hovering an item in the inventory/equipment
 public class ToolTip : MonoBehaviour {
     private Item item;
     private string data;
@@ -18,7 +19,7 @@ public class ToolTip : MonoBehaviour {
     {
         if(tooltip.activeSelf)
         {
-            tooltip.transform.position = Input.mousePosition;//+ new Vector3(10,-10,0);
+            tooltip.transform.position = Input.mousePosition;
         }
     }
 
@@ -36,6 +37,7 @@ public class ToolTip : MonoBehaviour {
 
     public void ConstructDataString()
     {
+        //gives a better aspect to the tooltip message
         data = "<color=#DF7401><b>" + item.Title + "</b></color>\n" + item.Description;
         if (item.Healthmodifier > 0)
             data += " +" + item.Healthmodifier + " HP";

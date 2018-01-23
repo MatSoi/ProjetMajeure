@@ -7,7 +7,7 @@ public class EquipmentUI : InventoryUI {
     void Start()
     {
         database = GetComponent<ItemDataBase>(); //simple because belonging to the same object
-        slotAmount = 8;
+        slotAmount = 8; //Different from the inventory panel
         inventoryPanel = GameObject.Find("EquipmentPanel");
         slotPanel = inventoryPanel.transform.Find("SlotPanel").gameObject;
         for (int i = 0; i < slotAmount; i++)
@@ -22,4 +22,5 @@ public class EquipmentUI : InventoryUI {
     }
 }
 
+//TODO check the equipable_type to restrain the access to equipment
 public enum EquipmentType { Nowhere, Head, Chest, Legs, Feet, Weapon, Shield }

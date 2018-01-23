@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+//manages dropping in inventory/equipment both graphical and internally
 public class Slot : MonoBehaviour, IDropHandler {
     public int slotid;
     private InventoryUI inv;
@@ -25,8 +26,6 @@ public class Slot : MonoBehaviour, IDropHandler {
         if(slotid < equip.slotAmount)
             if (Vector2.Distance(inv.slots[slotid].transform.position, eventData.position) > Vector2.Distance(equip.slots[slotid].transform.position, eventData.position))
                 droppedItem.dropplace = 1;
-
-        Debug.Log("item" + droppedItem.slotid + "from" + droppedItem.dragplace + "to" + slotid + "of" + droppedItem.dropplace);
 
         //Effect on dropplace
         if (droppedItem.dropplace == 0) //ends in inventory
@@ -89,26 +88,5 @@ public class Slot : MonoBehaviour, IDropHandler {
         }
 
         droppedItem.slotid = slotid; //replaces the slotid of droppeditem
-        
-        /*
-        if (inv.items[slotid].ID == -1) //empty slot
-        {
-            inv.items[droppedItem.slotid] = new Item(); //empty the old slot
-            inv.slots[droppedItem.slotid].name = "Empty Slot";
-            inv.items[slotid] = droppedItem.item; //fill the new slot
-            inv.slots[slotid].name = "Slot for : " + droppedItem.item.Title;
-        }
-        else if (droppedItem.slotid != slotid)//there is an item
-        {
-            Transform item = this.transform.GetChild(0); //grab the item in the slot
-            item.GetComponent<ItemData>().slotid = droppedItem.slotid;
-            item.transform.SetParent(inv.slots[droppedItem.slotid].transform);
-            item.transform.position = inv.slots[droppedItem.slotid].transform.position;
-
-            inv.items[droppedItem.slotid] = item.GetComponent<ItemData>().item;
-            inv.items[slotid] = droppedItem.item;
-        }
-        droppedItem.slotid = slotid;
-        */
     }
 }

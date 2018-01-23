@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
+//gathers every information to be found about an item
 public class Item {
 
     public int ID { get; set; }
@@ -15,8 +15,8 @@ public class Item {
     public string Description { get; set; }
     public bool Stackable { get; set; }
     public int Rarity { get; set; }
-    public string Slug { get; set; }
-    public Sprite Sprite { get; set; }
+    public string Slug { get; set; } //name of the sprite file
+    public Sprite Sprite { get; set; } //should be located in "Sprites/Items/"
     public int EquipmentSlot { get; set; }
 
     public Item(int id, string title, int value, float healthmodifier, float energymodifier,
@@ -49,6 +49,7 @@ public class Item {
         Value = value;
     }
 
+    //TODO
     public virtual void Use()
     {
         Debug.Log("Using " + this.Title);

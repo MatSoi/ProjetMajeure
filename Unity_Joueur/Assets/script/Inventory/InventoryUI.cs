@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//links the database to a UI
 public class InventoryUI : MonoBehaviour {
 
     //UI parameters
@@ -37,6 +38,7 @@ public class InventoryUI : MonoBehaviour {
             slots[i].transform.SetPositionAndRotation(slotPanel.transform.position,Quaternion.identity);
         }
 
+        //Do whatever for start items
         AddItem(0);
         AddItem(0);
         AddItem(1);
