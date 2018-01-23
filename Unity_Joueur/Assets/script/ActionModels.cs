@@ -11,7 +11,7 @@ public class ActionModels : MonoBehaviour {
     public Vector3 _endPos = Vector3.zero;
 
     public bool MOVE_MODEL = false;
-    public bool _move = false;
+    private bool _move = false;
     public float _speed = 20.0f;
 
     // the object to rotate
@@ -19,7 +19,7 @@ public class ActionModels : MonoBehaviour {
     private Vector3 mouseOrigin;
 
     public bool ROTATE_MODEL = false;
-    public bool _rotate = false;
+    private bool _rotate = false;
     public float turnSpeed = 4.0f;      // Speed of rotation when mouse moves in along an axis
 
     void FixedUpdate()

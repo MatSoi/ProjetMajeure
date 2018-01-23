@@ -27,7 +27,7 @@ public class SpawnModels : MonoBehaviour
             ModelToClone.GetComponent<Transform>().rotation,
             Terrain.transform.parent);
 
-        // Rename object : tag /*or prefab name*/ + indexInstance
+        // Rename object : prefab name + indexInstance
         instantiatedObj.name = ClickedButtonName  + "_" + indexInstance.ToString();
         indexInstance++;
 
