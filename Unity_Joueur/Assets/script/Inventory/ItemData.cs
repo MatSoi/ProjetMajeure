@@ -29,7 +29,6 @@ public class ItemData : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     {
         if(item != null)
         {
-            //offset = eventData.position - new Vector2(this.transform.position.x, this.transform.position.y);
             this.transform.SetParent(this.transform.parent.parent.parent.parent);
             this.transform.position = eventData.position;
             GetComponent<CanvasGroup>().blocksRaycasts = false; //disables the ray interaction to be able to interact with the slots below
@@ -40,16 +39,13 @@ public class ItemData : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
                 if (Vector2.Distance(inv.slots[slotid].transform.position, eventData.position) < Vector2.Distance(equip.slots[slotid].transform.position, eventData.position))
                 {
                     dragplace = 0; //belongs to the inventory
-                    Debug.Log("Drag from Inventory");
                 }
                 else
                 {
                     dragplace = 1; //belongs to the equipment
-                    Debug.Log("Drag from Equipment");
                 }
             }
         }
-        //DisplayItems();
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -66,8 +62,6 @@ public class ItemData : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         {
             if (Vector2.Distance(inv.slots[slotid].transform.position, eventData.position) > Vector2.Distance(equip.slots[slotid].transform.position, eventData.position))
             {
-                dropplace = 1;
-                Debug.Log("Drop in Equipment");
                 this.transform.SetParent(equip.slots[slotid].transform);
                 this.transform.position = equip.slots[slotid].transform.position;
                 GetComponent<CanvasGroup>().blocksRaycasts = true;
@@ -75,13 +69,10 @@ public class ItemData : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         }
         if(GetComponent<CanvasGroup>().blocksRaycasts == false) //shows that the item was not dragged
         {
-            dropplace = 0;
-            Debug.Log("Drop in Inventory");
             this.transform.SetParent(inv.slots[slotid].transform);
             this.transform.position = inv.slots[slotid].transform.position;
             GetComponent<CanvasGroup>().blocksRaycasts = true;
         }
-        DisplayItems();
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -92,20 +83,5 @@ public class ItemData : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     public void OnPointerExit(PointerEventData eventData)
     {
         tooltip.Deactivate();
-    }
-
-    public void DisplayItems()
-    {
-        for(int i=0; i<inv.items.Count; i++)
-        {
-            if(inv.items[i].ID != -1)
-                Debug.Log("ind" + i + " :" + inv.items[i].ID);
-        }
-
-        for (int i = 0; i < equip.items.Count; i++)
-        {
-            if (equip.items[i].ID != -1)
-                Debug.Log("ind" + i + " :" + equip.items[i].ID);
-        }
     }
 }
