@@ -3,11 +3,12 @@ using UnityEngine;
 
 public class CreateString : MonoBehaviour {
 
-    public GameObject UDPSender;
+    public GameObject[] UDPSenders;
 
     public List<string> Buffer;
     public string currentString;
     public int nbrOrder = 1;
+    private string lastOrder = " ";
     
 	// Update is called once per frame
 	void Update () {
@@ -42,8 +43,20 @@ public class CreateString : MonoBehaviour {
 
     public void Send()
     {
-        UDPSender.GetComponent<UDPSend>().sendString(Buffer[0]);
+        foreach(GameObject UDPSender in UDPSenders)
+        {
+            UDPSender.GetComponent<UDPSend>().sendString(Buffer[0]);
+            lastOrder = Buffer[0];
+        }
         Buffer.RemoveAt(0);
+    }
+
+    public void sendLastOrder()
+    {
+        foreach (GameObject UDPSender in UDPSenders)
+        {
+            UDPSender.GetComponent<UDPSend>().sendString(lastOrder);
+        }
     }
 }
 

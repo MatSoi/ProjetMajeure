@@ -5,7 +5,6 @@ using System;
 
 public class Scene : MonoBehaviour
 {
-
     public GameObject udpReceiver;
 	public GameObject udp2CppReceiver;
 
