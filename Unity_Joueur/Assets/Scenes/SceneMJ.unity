@@ -450,7 +450,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 2.4647217, y: -0.6161804}
+  m_AnchoredPosition: {x: 2.4647217, y: -0.61621094}
   m_SizeDelta: {x: 217, y: 126.3}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &210505063
@@ -1456,7 +1456,7 @@ Prefab:
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1229596286}
+      objectReference: {fileID: 1229596288}
     - target: {fileID: 1643222843802808, guid: 535d0e75227c6894c8f1332887d8a15e, type: 2}
       propertyPath: m_IsActive
       value: 0
