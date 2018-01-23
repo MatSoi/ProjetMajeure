@@ -9,13 +9,13 @@ public class Orders  {
 
     public Orders ()
     {
-        nbrOrder = 0;
+        nbrOrder = -1;
     }
 
     public Orders(string[] order)
     {
         nbrOrder   = int.Parse(order[0]);
-		type       = order [1];
+		type       = order[1];
         nameObject = order[2];
         value      = new Vector3(float.Parse(order[3]), float.Parse(order[4]), float.Parse(order[5]));
     }
