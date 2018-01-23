@@ -28,7 +28,7 @@ public class Orders  {
                 GameObject.Find(nameObject).transform.eulerAngles = value;
                 break;
             case "TRANSLATE":
-                GameObject.Find(nameObject).transform.Translate(value);
+                GameObject.Find(nameObject).transform.position = value;
                 break;
             case "INSTANTIATE":
                 string[] name_object = nameObject.Split('_');
