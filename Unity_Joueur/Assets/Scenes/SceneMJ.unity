@@ -1461,6 +1461,16 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114195397825759676, guid: 535d0e75227c6894c8f1332887d8a15e,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1606367273}
+    - target: {fileID: 114195397825759676, guid: 535d0e75227c6894c8f1332887d8a15e,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ReplaceCameraToOrigin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 535d0e75227c6894c8f1332887d8a15e, type: 2}
   m_IsPrefabParent: 0
@@ -1847,6 +1857,12 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 2003929979}
   m_Script: {fileID: 575553740, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!114 &1606367273 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114628143966866894, guid: 8483dde1842046c42b047fc3b6fe99b7,
+    type: 2}
+  m_PrefabInternal: {fileID: 1486669506}
+  m_Script: {fileID: 11500000, guid: b9dc8276829088b4fb31325fbefcec28, type: 3}
 --- !u!1 &1609680904 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1223558063708062, guid: 535d0e75227c6894c8f1332887d8a15e,
