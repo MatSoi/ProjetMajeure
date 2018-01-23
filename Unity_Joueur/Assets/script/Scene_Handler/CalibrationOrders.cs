@@ -1,15 +1,31 @@
 ﻿using UnityEngine;
 
+
+/**
+ * Class to treat a calibration orders.
+ * A calibration orders is received with an array of strings, each string corresponding to an elementary action to do (elementary order)
+ * Treatment of a calibration order : -the complex calibration ordered is split by "_" is scene to get a string array of elementary order.
+ * -a CalibrationOrders object is instantiated with this string array to create an order.
+ * 
+ * This class decompose the string array by creating array of type/nameObject/values for each elementary order with it's constructor.
+ * An order is composed of Type/nameObject/values.0/values.1/etc...
+ * 
+ * When doCalibrationOrders is called in the scene, the order is executed, treating the action to do depending on the Type, NameObject and using the registered values
+ **/
 public class CalibrationOrders
 {
-	public string[] type;
-	public string[] nameObject;
-	public float[][] values;
+	public string[] type; //Array to stock the types of every suborders types
+	public string[] nameObject;//Array to stock the types of every suborders nameObject
+	public float[][] values;//Array to stock the types of every suborders values
 
 	//Get reference to the camera to change their projection matrix later on
 	private Camera leftCam;//Reference to left camera
 	private Camera rightCam;//Reference to right camera
 
+
+	/**
+	 * Constructor: decompose the complex order into the elementary orders which are stocked
+	 **/
 	public CalibrationOrders (string[] order)
 	{
 		leftCam = GameObject.Find ("LeftCameraVirtual").GetComponent<Camera>();
@@ -21,6 +37,8 @@ public class CalibrationOrders
 
 		for(int i=0; i<order.Length; i++)
 		{
+			//The elementary is composed by Type/NameObject/Values0/Values1/..
+			//So we split it with /
 			string[] currentOrder = order[i].Split('/');
 			type[i] = currentOrder[0];//Type is the first string sent
 			nameObject[i] = currentOrder[1];//Object name is the second string sent
@@ -31,6 +49,7 @@ public class CalibrationOrders
 		}
 	}
 
+	//Apply each elementary order depending on the types
 	public void doCalibrationOrders ()
 	{
 		for (int i = 0; i < type.Length; i++) {
