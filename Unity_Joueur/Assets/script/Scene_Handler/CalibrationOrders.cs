@@ -79,7 +79,7 @@ public class CalibrationOrders
 				break;
 			//Treat projection matrix order from the calibration application
 			case "F":
-				if (values[i].Length >= 16) {//Force to have 16 values to construct 4x4 matrix	
+				if (values[i].Length >= 2) {//Force to have 16 values to construct 4x4 matrix	
 					Matrix4x4 projMatrix = createMatrix4x4 (values[i]);
 					if (nameObject[i] == "left") 
 						leftCam.projectionMatrix = projMatrix;
@@ -100,12 +100,16 @@ public class CalibrationOrders
 	/** Create 4x4 matrix from an array of values **/
 	Matrix4x4 createMatrix4x4 (float[] values)
 	{
-		Matrix4x4 result = new Matrix4x4();
-		result.SetRow (0, new Vector4 (values [0], values [1], values [2], values [3]));
-		result.SetRow (1, new Vector4 (values [4], values [5], values [6], values [7]));
-		result.SetRow (2, new Vector4 (values [8], values [9], values [10], values [11]));
-		result.SetRow (3, new Vector4 (values [12], values [13], values [14], values [15]));
+		float near = 0.3f;
+		float far = 1000f;
+		float temp1 = (far + near) / (near - far);
+		float temp2 = (2 * far * near) / (near - far);
 
+		Matrix4x4 result = new Matrix4x4();
+		result.SetRow (0, new Vector4 (values [0], 0, 0, 0));
+		result.SetRow (1, new Vector4 (0, values [1], 0, 0));
+		result.SetRow (2, new Vector4 (0, 0, temp1, temp2));
+		result.SetRow (3, new Vector4 (0, 0, -1, 0));
 		return result;
 	}
 }
