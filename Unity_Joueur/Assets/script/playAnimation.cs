@@ -4,8 +4,9 @@ using System.Collections;
 
 public class playAnimation : MonoBehaviour
 {
-    public GameObject _objToAnimate;
-    public Animator anim;
+    private GameObject _objToAnimate;
+    private string _obj_type;
+    private Animator anim;
     
     int dragon_scream;
     int dragon_basicAttack;
@@ -54,8 +55,9 @@ public class playAnimation : MonoBehaviour
     private void UpdateObjToAnim()
     {
         _objToAnimate = GameObject.Find("Terrain").GetComponent<ActionModels>()._obj;
-
-        if (_objToAnimate.tag == "dragon")
+        string[] name = _objToAnimate.name.Split('_');
+        _obj_type = name[0];
+        if (_obj_type == "dragon")
         {
             anim = _objToAnimate.GetComponent<Animator>();
 
@@ -78,7 +80,7 @@ public class playAnimation : MonoBehaviour
             idle02 = dragon_idle02;
         }
 
-        if(_objToAnimate.tag == "wizard")
+        if(_obj_type == "wizard")
         {
             basicAttack = wizard_basicAttack;
             die = wizard_die;
@@ -142,10 +144,10 @@ public class playAnimation : MonoBehaviour
     {
         UpdateObjToAnim();
 
-        if (_objToAnimate.tag == "dragon")
+        if (_obj_type == "dragon")
             anim.SetTrigger(basicAttack);
 
-        else if (_objToAnimate.tag == "wizard")
+        else if (_obj_type == "wizard")
         {
             if (CheckAniClip("attack_short_001") == false) return;
             Debug.Log("basicAttack");
@@ -163,10 +165,10 @@ public class playAnimation : MonoBehaviour
     {
         UpdateObjToAnim();
 
-        if (_objToAnimate.tag == "dragon")
+        if (_obj_type == "dragon")
             anim.SetTrigger(clawAttack);
 
-        else if (_objToAnimate.tag == "wizard")
+        else if (_obj_type == "wizard")
         {
             if (CheckAniClip("attack_short_001") == false) return;
             Debug.Log("basicAttack");
@@ -179,10 +181,10 @@ public class playAnimation : MonoBehaviour
     {
         UpdateObjToAnim();
 
-        if (_objToAnimate.tag == "dragon")
+        if (_obj_type == "dragon")
             anim.SetTrigger(flameAttack);
         
-        else if (_objToAnimate.tag == "wizard")
+        else if (_obj_type == "wizard")
         {
             if (CheckAniClip("attack_short_001") == false) return;
             Debug.Log("basicAttack");
@@ -200,9 +202,9 @@ public class playAnimation : MonoBehaviour
     public void GetHit()
     {
         UpdateObjToAnim();
-        if (_objToAnimate.tag == "dragon")
+        if (_obj_type == "dragon")
             anim.SetTrigger(getHit);
-        else if (_objToAnimate.tag == "wizard")
+        else if (_obj_type == "wizard")
         {
             if (CheckAniClip("damage_001") == false) return;
 
@@ -225,9 +227,9 @@ public class playAnimation : MonoBehaviour
     public void Walk()
     {
         UpdateObjToAnim();
-        if (_objToAnimate.tag == "dragon")
+        if (_obj_type == "dragon")
             anim.SetTrigger(walk);
-        else if (_objToAnimate.tag == "wizard")
+        else if (_obj_type == "wizard")
         {
             if (CheckAniClip("move_forward") == false) return;
 
@@ -238,9 +240,9 @@ public class playAnimation : MonoBehaviour
     public void Run()
     {
         UpdateObjToAnim();
-        if (_objToAnimate.tag == "dragon")
+        if (_obj_type == "dragon")
             anim.SetTrigger(run);
-        else if (_objToAnimate.tag == "wizard")
+        else if (_obj_type == "wizard")
         {
             if (CheckAniClip("move_forward_fast") == false) return;
 
@@ -281,9 +283,9 @@ public class playAnimation : MonoBehaviour
     public void Die()
     {
         UpdateObjToAnim();
-        if (_objToAnimate.tag == "dragon")
+        if (_obj_type == "dragon")
             anim.SetTrigger(die);
-        else if (_objToAnimate.tag == "wizard")
+        else if (_obj_type == "wizard")
         {
             if (CheckAniClip("dead") == false) return;
 
@@ -299,9 +301,9 @@ public class playAnimation : MonoBehaviour
     public void Idle01()
     {
         UpdateObjToAnim();
-        if (_objToAnimate.tag == "dragon")
+        if (_obj_type == "dragon")
             anim.SetTrigger(idle01);
-        else if (_objToAnimate.tag == "wizard")
+        else if (_obj_type == "wizard")
         {
             if (CheckAniClip("idle_normal") == false) return;
 
@@ -318,9 +320,9 @@ public class playAnimation : MonoBehaviour
     public void Idle02()
     {
         UpdateObjToAnim();
-        if(_objToAnimate.tag == "dragon")
+        if(_obj_type == "dragon")
             anim.SetTrigger(idle02);
-        else if(_objToAnimate.tag == "wizard")
+        else if(_obj_type == "wizard")
         {
             if (CheckAniClip("idle_combat") == false) return;
 
