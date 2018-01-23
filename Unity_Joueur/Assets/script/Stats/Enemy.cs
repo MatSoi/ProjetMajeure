@@ -6,9 +6,12 @@ public class Enemy : Character
 {
     public float speed;
 
-    private void Start()
+    public void Awake()
     {
-        
+        health.MaxVal = 100;
+        energy.MaxVal = 100;
+        shield.MaxVal = 0;
+
     }
 
     private void Update()
