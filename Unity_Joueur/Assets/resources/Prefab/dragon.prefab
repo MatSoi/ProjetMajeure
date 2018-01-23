@@ -125,6 +125,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4026624365274230}
   - component: {fileID: 95794028533484554}
+  - component: {fileID: 114769830567202934}
   - component: {fileID: 54285909813549096}
   - component: {fileID: 65282659390240106}
   - component: {fileID: 23716963338551208}
@@ -1704,7 +1705,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1191999272670026}
-  m_LocalRotation: {x: -0.34885347, y: 0.6120613, z: 0.26277512, w: 0.65926594}
+  m_LocalRotation: {x: -0.34885344, y: 0.61206126, z: 0.2627751, w: 0.6592659}
   m_LocalPosition: {x: -162.46858, y: 1.4210855e-14, z: 2.220446e-14}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2573,8 +2574,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 662a5a19ce7cbcc4ca4c0e9141505994, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _objToAnimate: {fileID: 0}
-  anim: {fileID: 0}
+--- !u!114 &114769830567202934
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1101094810377132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f972f874f44025f439cffc79da53b85f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health:
+    bar: {fileID: 0}
+    maxVal: 0
+    currentVal: 0
+  energy:
+    bar: {fileID: 0}
+    maxVal: 0
+    currentVal: 0
+  shield:
+    bar: {fileID: 0}
+    maxVal: 0
+    currentVal: 0
+  attack_damage:
+    bar: {fileID: 0}
+    maxVal: 0
+    currentVal: 0
+  armor:
+    bar: {fileID: 0}
+    maxVal: 0
+    currentVal: 0
+  state: 0
+  speed: 0
 --- !u!114 &114787741446224712
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2589,10 +2621,8 @@ MonoBehaviour:
   _obj: {fileID: 0}
   _endPos: {x: 0, y: 0, z: 0}
   MOVE_MODEL: 0
-  _move: 0
   _speed: 20
   ROTATE_MODEL: 0
-  _rotate: 0
   turnSpeed: 4
 --- !u!114 &114819413398939714
 MonoBehaviour:
@@ -2605,9 +2635,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed16fa0bb88b9744d9d0d92121d46ff9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ListSelection: {fileID: 0}
-  ListAction: {fileID: 0}
-  ListAnimation: {fileID: 0}
+  ListSelection: {fileID: 1561350116298804, guid: 535d0e75227c6894c8f1332887d8a15e,
+    type: 2}
+  ListAction: {fileID: 1643222843802808, guid: 535d0e75227c6894c8f1332887d8a15e, type: 2}
+  ListAnimation: {fileID: 1223558063708062, guid: 535d0e75227c6894c8f1332887d8a15e,
+    type: 2}
   hitObj: {fileID: 0}
   hitPos: {x: 0, y: 0, z: 0}
 --- !u!137 &137459045761586008
