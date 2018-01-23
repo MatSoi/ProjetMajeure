@@ -450,13 +450,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-<<<<<<< HEAD
-  m_AnchoredPosition: {x: 2.4000244, y: -0.6000061}
-  m_SizeDelta: {x: 217, y: 82.5}
-=======
   m_AnchoredPosition: {x: 2.4647217, y: -0.6161804}
   m_SizeDelta: {x: 217, y: 126.3}
->>>>>>> UpdateUI
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &210505063
 MonoBehaviour:
@@ -1442,11 +1437,6 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114195397825759676, guid: 535d0e75227c6894c8f1332887d8a15e,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1486669507}
     - target: {fileID: 114526424865924646, guid: 535d0e75227c6894c8f1332887d8a15e,
         type: 2}
       propertyPath: Terrain
@@ -1466,22 +1456,11 @@ Prefab:
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-<<<<<<< HEAD
-      objectReference: {fileID: 1229596288}
-=======
       objectReference: {fileID: 1229596286}
->>>>>>> UpdateUI
-    - target: {fileID: 1561350116298804, guid: 535d0e75227c6894c8f1332887d8a15e, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-<<<<<<< HEAD
     - target: {fileID: 1643222843802808, guid: 535d0e75227c6894c8f1332887d8a15e, type: 2}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-=======
->>>>>>> UpdateUI
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 535d0e75227c6894c8f1332887d8a15e, type: 2}
   m_IsPrefabParent: 0
@@ -1857,14 +1836,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8483dde1842046c42b047fc3b6fe99b7, type: 2}
   m_IsPrefabParent: 0
-<<<<<<< HEAD
---- !u!114 &1486669507 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114628143966866894, guid: 8483dde1842046c42b047fc3b6fe99b7,
-    type: 2}
-  m_PrefabInternal: {fileID: 1486669506}
-  m_Script: {fileID: 11500000, guid: b9dc8276829088b4fb31325fbefcec28, type: 3}
-=======
 --- !u!224 &1566379595 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224844235951836040, guid: 535d0e75227c6894c8f1332887d8a15e,
@@ -1876,7 +1847,6 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 2003929979}
   m_Script: {fileID: 575553740, guid: f70555f144d8491a825f0804e09c671c, type: 3}
->>>>>>> UpdateUI
 --- !u!1 &1609680904 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1223558063708062, guid: 535d0e75227c6894c8f1332887d8a15e,
