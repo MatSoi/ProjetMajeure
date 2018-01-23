@@ -25,16 +25,16 @@ public class SpawnModels : MonoBehaviour
             ModelToClone,
             PosWhereToSpawn,
             ModelToClone.GetComponent<Transform>().rotation,
-            Terrain.GetComponentInParent<Transform>());
+            Terrain.transform.parent);
 
         // Rename object : tag /*or prefab name*/ + indexInstance
-        instantiatedObj.name = instantiatedObj.tag /*ClickedButtonName*/  + "_" + indexInstance.ToString();
+        instantiatedObj.name = ClickedButtonName  + "_" + indexInstance.ToString();
         indexInstance++;
 
         // add list to toggle selection
         instantiatedObj.GetComponent<ToggleSelection>().ListSelection = Terrain.GetComponent<ToggleSelection>().ListSelection;
         instantiatedObj.GetComponent<ToggleSelection>().ListAction = Terrain.GetComponent<ToggleSelection>().ListAction;
-        if(instantiatedObj.tag == "dragon" || instantiatedObj.tag == "wizard")
+        if(instantiatedObj.tag == "anim") // = contains animations
             instantiatedObj.GetComponent<ToggleSelection>().ListAnimation = Terrain.GetComponent<ToggleSelection>().ListAnimation;
 
         // send string

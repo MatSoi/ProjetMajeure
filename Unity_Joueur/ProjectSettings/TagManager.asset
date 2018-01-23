@@ -4,7 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Second
+  - floor
+  - ListAnimation
+  - ListSelection
+  - ListAction
+  - anim
   layers:
   - Default
   - TransparentFX

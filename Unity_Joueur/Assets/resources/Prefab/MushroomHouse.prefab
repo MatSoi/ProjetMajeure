@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 114717190009152206}
   m_Layer: 0
   m_Name: MushroomHouse
-  m_TagString: MushroomHouse
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
