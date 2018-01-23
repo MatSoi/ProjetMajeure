@@ -8,7 +8,7 @@ public class ActionModels : MonoBehaviour {
 
     // the object to move
     private GameObject _movingObj = null;
-    public Vector3 _endPos = Vector3.zero;
+    private Vector3 _endPos = Vector3.zero;
 
     public bool MOVE_MODEL = false;
     private bool _move = false;
