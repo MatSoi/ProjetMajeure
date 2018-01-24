@@ -21,6 +21,12 @@ public class Character : MonoBehaviour
 
     [SerializeField]
     public int state;
+
+
+    public void AttackSO(int ID)
+    {
+
+    }
     public void TakeDamage(float damage, bool crit)
     {
         if (health.CurrentVal > 0)
