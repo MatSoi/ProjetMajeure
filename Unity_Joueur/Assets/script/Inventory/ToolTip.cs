@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 
 //generates the details displayed when hovering an item in the inventory/equipment
+/**
+ * Details generation class, active when hovering an item in InventoryUI or EquipmentUI
+ **/
 public class ToolTip : MonoBehaviour {
     private Item item;
     private string data;
@@ -11,7 +14,7 @@ public class ToolTip : MonoBehaviour {
 
     private void Start()
     {
-        tooltip = GameObject.Find("ToolTip");
+        tooltip = GameObject.Find("ToolTip"); // ! \\ IMPORTANT to get the reference before deactivating
         tooltip.SetActive(false); //done after or else the find function won't work, makes the tooltip disappear
     }
 
@@ -19,7 +22,7 @@ public class ToolTip : MonoBehaviour {
     {
         if(tooltip.activeSelf)
         {
-            tooltip.transform.position = Input.mousePosition;
+            tooltip.transform.position = Input.mousePosition; //makes the tooltip follow the mouse, offset can be added here
         }
     }
 
@@ -27,17 +30,18 @@ public class ToolTip : MonoBehaviour {
     {
         this.item = item;
         ConstructDataString();
-        tooltip.SetActive(true); //activates the game object tooltip
+        tooltip.SetActive(true);    //activates the game object tooltip
     }
 
     public void Deactivate()
     {
-        tooltip.SetActive(false);
+        tooltip.SetActive(false);   //disappears when not hovering
     }
 
+    // Creates the text content of the tooltip
     public void ConstructDataString()
     {
-        //gives a better aspect to the tooltip message
+        //HTML <> can be used to format the text
         data = "<color=#DF7401><b>" + item.Title + "</b></color>\n" + item.Description;
         if (item.Healthmodifier > 0)
             data += " +" + item.Healthmodifier + " HP";

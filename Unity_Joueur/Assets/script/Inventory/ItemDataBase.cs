@@ -5,17 +5,20 @@ using LitJson;
 using System.IO;
 using System;
 
-//creates the item data base from a json file located in StreamingAssets
+/**
+ * Creates the item data base from a json file located in StreamingAssets/
+ **/
 public class ItemDataBase : MonoBehaviour {
     private List<Item> database = new List<Item>();
     private JsonData itemData;
 
     private void Start()
     {
-        itemData = JsonMapper.ToObject(File.ReadAllText(Application.dataPath + "/StreamingAssets/Items.json")); //path to file not recompiled everytime
+        itemData = JsonMapper.ToObject(File.ReadAllText(Application.dataPath + "/StreamingAssets/Items.json")); //path to file // ! \\ not recompiled everytime
         ConstructItemDatabase();
     }
 
+    //Goes through the database and returns pointer on specified item
     public Item FetchItemByID(int id)
     {
         for(int i=0; i< database.Count; i++)
@@ -26,6 +29,7 @@ public class ItemDataBase : MonoBehaviour {
         return null;
     }
 
+    //Reads and parse the item data base
     private void ConstructItemDatabase()
     {
         for(int i=0; i< itemData.Count; i++)

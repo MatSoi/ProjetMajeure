@@ -1,4 +1,4 @@
-﻿//Enumeration des differentes phases du jeu
+﻿//Game phases enum
 public enum GameStates {
     StartPhase,
     GamePhase
