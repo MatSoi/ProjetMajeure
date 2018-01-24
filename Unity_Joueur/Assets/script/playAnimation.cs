@@ -154,7 +154,9 @@ public class playAnimation : MonoBehaviour
             _objToAnimate.GetComponent<Animation>().CrossFade("attack_short_001", 0.0f);
             _objToAnimate.GetComponent<Animation>().CrossFadeQueued("idle_combat");
         }
-
+    }
+    
+    public void SendAttackAnimation() { 
         // send string
         CreateString sendString = GameObject.Find("ScriptHolderCreateString").GetComponent<CreateString>();
         sendString.Create(OrderType.ATTACK,

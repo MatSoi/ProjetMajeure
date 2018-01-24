@@ -1347,6 +1347,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114974370677867130, guid: 535d0e75227c6894c8f1332887d8a15e,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 224844235951836040, guid: 535d0e75227c6894c8f1332887d8a15e,
         type: 2}
       propertyPath: m_LocalPosition.x
@@ -1471,9 +1476,40 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ReplaceCameraToOrigin
       objectReference: {fileID: 0}
+    - target: {fileID: 114974370677867130, guid: 535d0e75227c6894c8f1332887d8a15e,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114974370677867130, guid: 535d0e75227c6894c8f1332887d8a15e,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114974370677867130, guid: 535d0e75227c6894c8f1332887d8a15e,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 1222480661}
+    - target: {fileID: 114974370677867130, guid: 535d0e75227c6894c8f1332887d8a15e,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: SendAttackAnimation
+      objectReference: {fileID: 0}
+    - target: {fileID: 114974370677867130, guid: 535d0e75227c6894c8f1332887d8a15e,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 535d0e75227c6894c8f1332887d8a15e, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &1222480661 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114515598705726082, guid: 535d0e75227c6894c8f1332887d8a15e,
+    type: 2}
+  m_PrefabInternal: {fileID: 1222480660}
+  m_Script: {fileID: 11500000, guid: 662a5a19ce7cbcc4ca4c0e9141505994, type: 3}
 --- !u!1 &1229596286 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1399456215742364, guid: 83485b4dffe77bc4d955268b2201ea93,
