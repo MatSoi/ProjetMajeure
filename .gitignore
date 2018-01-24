@@ -18,3 +18,5 @@ Unity_Joueur/MJTest_Data/
 Unity_Joueur/Assembly-CSharp-Editor.csproj
 Unity_Joueur/Assembly-CSharp.csproj
 Unity_Joueur/Unity_Joueur.userprefs
+
+.vs/*
