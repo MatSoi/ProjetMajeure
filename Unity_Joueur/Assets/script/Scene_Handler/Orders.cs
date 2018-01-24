@@ -50,15 +50,24 @@ public class Orders  {
                 GameObject.Find("Terrain").GetComponent<ActionModels>()._obj = attacker;
                 attacker.GetComponent<playAnimation>().BasicAttack();
                 break;
-            /* case "ATTACK":
-                 string[] name_attacked = nameObject.Split('_');
-                 Debug.Log(name_attacked[0]);
-                 GameObject prefab = (GameObject)Resources.Load("Prefab/" + name_attacked[0], typeof(GameObject));
-                 GameObject myobject = Object.Instantiate(prefab);
-                 myobject.transform.parent = GameObject.Find("Scene").transform;
-                 myobject.transform.position = value;
-                 myobject.name = nameObject;
-                 break;*/
+            case "HUGEATTACK":
+                Debug.Log(nameObject);
+                GameObject hattacked = GameObject.Find(nameObject);
+                GameObject.Find("Terrain").GetComponent<ActionModels>()._obj = hattacked;
+                hattacked.GetComponent<playAnimation>().FlameAttack();
+                break;
+            case "GETHIT":
+                Debug.Log(nameObject);
+                GameObject attacked = GameObject.Find(nameObject);
+                GameObject.Find("Terrain").GetComponent<ActionModels>()._obj = attacked;
+                attacked.GetComponent<playAnimation>().GetHit();
+                break;
+            case "DIE":
+                Debug.Log(nameObject);
+                GameObject dying = GameObject.Find(nameObject);
+                GameObject.Find("Terrain").GetComponent<ActionModels>()._obj = dying;
+                dying.GetComponent<playAnimation>().Die();
+                break;
             case "DISPLAY":
                 Player p = GameObject.Find(nameObject).GetComponent<Player>();
                 if(value == Vector3.zero)

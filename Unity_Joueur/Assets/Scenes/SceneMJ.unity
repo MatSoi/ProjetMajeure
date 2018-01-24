@@ -1352,6 +1352,21 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114812190882381982, guid: 535d0e75227c6894c8f1332887d8a15e,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114877552781350570, guid: 535d0e75227c6894c8f1332887d8a15e,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114782360422100584, guid: 535d0e75227c6894c8f1332887d8a15e,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 224844235951836040, guid: 535d0e75227c6894c8f1332887d8a15e,
         type: 2}
       propertyPath: m_LocalPosition.x
@@ -1494,9 +1509,84 @@ Prefab:
     - target: {fileID: 114974370677867130, guid: 535d0e75227c6894c8f1332887d8a15e,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: SendAttackAnimation
+      value: SendBasicAttackAnimation
       objectReference: {fileID: 0}
     - target: {fileID: 114974370677867130, guid: 535d0e75227c6894c8f1332887d8a15e,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 114812190882381982, guid: 535d0e75227c6894c8f1332887d8a15e,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114812190882381982, guid: 535d0e75227c6894c8f1332887d8a15e,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114812190882381982, guid: 535d0e75227c6894c8f1332887d8a15e,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 1222480661}
+    - target: {fileID: 114812190882381982, guid: 535d0e75227c6894c8f1332887d8a15e,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: SendGetHitAnimation
+      objectReference: {fileID: 0}
+    - target: {fileID: 114812190882381982, guid: 535d0e75227c6894c8f1332887d8a15e,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 114877552781350570, guid: 535d0e75227c6894c8f1332887d8a15e,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114877552781350570, guid: 535d0e75227c6894c8f1332887d8a15e,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114877552781350570, guid: 535d0e75227c6894c8f1332887d8a15e,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 1222480661}
+    - target: {fileID: 114877552781350570, guid: 535d0e75227c6894c8f1332887d8a15e,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: SendFlameAttackAnimation
+      objectReference: {fileID: 0}
+    - target: {fileID: 114877552781350570, guid: 535d0e75227c6894c8f1332887d8a15e,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 114782360422100584, guid: 535d0e75227c6894c8f1332887d8a15e,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114782360422100584, guid: 535d0e75227c6894c8f1332887d8a15e,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114782360422100584, guid: 535d0e75227c6894c8f1332887d8a15e,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 1222480661}
+    - target: {fileID: 114782360422100584, guid: 535d0e75227c6894c8f1332887d8a15e,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: SendDieAnimation
+      objectReference: {fileID: 0}
+    - target: {fileID: 114782360422100584, guid: 535d0e75227c6894c8f1332887d8a15e,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine

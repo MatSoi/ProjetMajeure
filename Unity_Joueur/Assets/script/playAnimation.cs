@@ -156,7 +156,7 @@ public class playAnimation : MonoBehaviour
         }
     }
     
-    public void SendAttackAnimation() { 
+    public void SendBasicAttackAnimation() { 
         // send string
         CreateString sendString = GameObject.Find("ScriptHolderCreateString").GetComponent<CreateString>();
         sendString.Create(OrderType.ATTACK,
@@ -195,6 +195,14 @@ public class playAnimation : MonoBehaviour
         }
     }
 
+    public void SendFlameAttackAnimation()
+    {
+        // send string
+        CreateString sendString = GameObject.Find("ScriptHolderCreateString").GetComponent<CreateString>();
+        sendString.Create(OrderType.HUGEATTACK,
+            _objToAnimate.name, Vector3.zero);
+    }
+
     public void Defend()
     {
         UpdateObjToAnim();
@@ -213,7 +221,10 @@ public class playAnimation : MonoBehaviour
             _objToAnimate.GetComponent<Animation>().CrossFade("damage_001", 0.0f);
             _objToAnimate.GetComponent<Animation>().CrossFadeQueued("idle_combat");
         }
+    }
 
+    public void SendGetHitAnimation()
+    {
         // send string
         CreateString sendString = GameObject.Find("ScriptHolderCreateString").GetComponent<CreateString>();
         sendString.Create(OrderType.GETHIT,
@@ -293,7 +304,10 @@ public class playAnimation : MonoBehaviour
 
             _objToAnimate.GetComponent<Animation>().CrossFade("dead", 0.2f);
         }
+    }
 
+    public void SendDieAnimation()
+    {
         // send string
         CreateString sendString = GameObject.Find("ScriptHolderCreateString").GetComponent<CreateString>();
         sendString.Create(OrderType.DIE,

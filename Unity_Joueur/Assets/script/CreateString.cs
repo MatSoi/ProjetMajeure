@@ -69,6 +69,7 @@ public enum OrderType
     DELETE,
 
     ATTACK,
+    HUGEATTACK,
     GETHIT,
     DIE,
     IDLE1,
