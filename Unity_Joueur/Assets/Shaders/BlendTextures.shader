@@ -47,6 +47,9 @@ Shader "Custom/BlendTextures" {
 				Interpolators i;
 				i.position = UnityObjectToClipPos(v.position);
 
+				//Modification des coordonnées de textures pour former une texture correspondant à 2 images:
+				//Chaque texture est répété 2 fois selon les X
+
 				_MainTexLeft_ST.x *= 2.0;
 				i.MainLeft_uv = TRANSFORM_TEX(v.uv, _MainTexLeft);
 
@@ -64,7 +67,7 @@ Shader "Custom/BlendTextures" {
 
 			float4 frag (Interpolators i) : SV_TARGET {
 				float4 col;
-				if (i.MainLeft_uv.x < 1)
+				if (i.MainLeft_uv.x < 1)//Si dans la première partie de la texture (uv selon x < 1), alors on mélange texture virtuelle et réelle de la caméra de gauche
 				{
 				fixed4 backgroundTex = tex2D(_MainTexLeft, i.MainLeft_uv);
      			fixed4 sceneTex = tex2D(_BlendTexLeft, i.BlendLeft_uv);                           
@@ -72,19 +75,19 @@ Shader "Custom/BlendTextures" {
       			fixed4 backgroundOutput = backgroundTex.rgba * (1.0 - (sceneTex.a));
       			fixed4 blendOutput = sceneTex.rgba * sceneTex.a;
 
-      			col.rgb = backgroundOutput.rgb + blendOutput.rgb;
+      			col.rgb = backgroundOutput.rgb + blendOutput.rgb;//Mélange des textures par simple addition
       			col.a = backgroundOutput.a;
 				}
-				if (i.MainRight_uv.x > 1)
+				if (i.MainRight_uv.x > 1)//Si dans la première partie de la texture (uv selon x > 1), alors on mélange texture virtuelle et réelle de la caméra de droite
 				{
-				i.MainRight_uv.x -= 1.0;
+				i.MainRight_uv.x -= 1.0;//décale la texture selon x pour obtenir la bonne image
 				fixed4 backgroundTex = tex2D(_MainTexRight, i.MainRight_uv);
      			fixed4 sceneTex = tex2D(_BlendTexRight, i.BlendRight_uv);                           
       
       			fixed4 backgroundOutput = backgroundTex.rgba * (1.0 - (sceneTex.a));
       			fixed4 blendOutput = sceneTex.rgba * sceneTex.a;
 
-      			col.rgb = backgroundOutput.rgb + blendOutput.rgb;
+      			col.rgb = backgroundOutput.rgb + blendOutput.rgb;//Mélange des textures par simple addition
       			col.a = backgroundOutput.a;
 				}
 				return col;

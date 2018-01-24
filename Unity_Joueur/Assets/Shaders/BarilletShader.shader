@@ -1,4 +1,5 @@
 ﻿Shader "Custom/BarilletShader" {
+//Code inspiré par le code de Mr Odin.
 
 	Properties{
 		_MainTex ("_MainTex", 2D) = "white" {}
