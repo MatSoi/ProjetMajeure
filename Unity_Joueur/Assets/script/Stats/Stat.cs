@@ -34,6 +34,9 @@ public class Stat
         }
     }
 
+    /**
+     * Define the Max Value of the stat (getter and setter)
+     **/
     public float MaxVal
     {
         get
@@ -48,6 +51,10 @@ public class Stat
         }
     }
     
+
+    /*
+     * 
+     */
     public void AddModifier(float modifier)
     {
         if(modifier != 0)

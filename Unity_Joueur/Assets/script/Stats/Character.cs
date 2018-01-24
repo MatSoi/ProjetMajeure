@@ -20,7 +20,7 @@ public class Character : MonoBehaviour
 
 
     [SerializeField]
-    public int state;
+    public StateType state;
 
 
     // Damage Manager
@@ -72,5 +72,33 @@ public class Character : MonoBehaviour
     {
         // FloatingTextController.Instance.CreateText(transform.position, "DIES", Color.black, true);
     }
-
+    public void Awaken()
+    {
+        state = 0;
+        // FloatingTextController.Instance.CreateText(transform.position, heal.ToString(), Color.green, crit);
+    }
+    public bool isNormal()
+    {
+        if(state == 0) return true;
+        return false;
+        // FloatingTextController.Instance.CreateText(transform.position, heal.ToString(), Color.green, crit);
+    }
+    public void isPoisoned()
+    {
+        health.CurrentVal -= 10;
+        if (health.CurrentVal <= 0)
+        {
+            Die();
+        }
+        // FloatingTextController.Instance.CreateText(transform.position, heal.ToString(), Color.green, crit);
+    }
 }
+
+public enum StateType
+{
+    NORMAL,
+    SLEEP,
+    POISONED,
+    CONFUSED
+
+};
