@@ -8,9 +8,12 @@ public class Enemy : Character
 
     public void Awake()
     {
-        health.MaxVal = 100;
+        /*health.MaxVal = 100;
         energy.MaxVal = 100;
         shield.MaxVal = 0;
+        attack_damage.MaxVal = 20;
+        armor.MaxVal = 15;*/
+        //attack_damage.Initialize();
 
     }
 
