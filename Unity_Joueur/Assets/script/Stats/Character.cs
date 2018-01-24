@@ -23,33 +23,50 @@ public class Character : MonoBehaviour
     public int state;
 
 
-    public void AttackSO(int ID)
-    {
-
-    }
+    // Damage Manager
     public void TakeDamage(float damage, bool crit)
     {
-        if (health.CurrentVal > 0)
+        //If the character has a shield, we reduce it before health
+        if (shield.CurrentVal > 0)
         {
             damage -= armor.CurrentVal;
             damage = Mathf.Clamp(damage, 0, int.MaxValue);
-            health.CurrentVal -= damage;
-            // FloatingTextController.Instance.CreateText(transform.position, damage.ToString(), Color.red, crit);
-
-            if (health.CurrentVal <= 0)
+            if (shield.CurrentVal > damage)
+                shield.CurrentVal -= damage;
+            if (shield.CurrentVal < damage)
             {
-                Die();
+                damage -= shield.CurrentVal;
+                shield.CurrentVal = 0;
+                health.CurrentVal -= damage;
+                if (health.CurrentVal <= 0)
+                {
+                    Die();
+                }
+
+            }
+            // FloatingTextController.Instance.CreateText(transform.position, damage.ToString(), Color.red, crit);
+        }
+        else
+        {
+            if (health.CurrentVal > 0)
+            {
+                damage -= armor.CurrentVal;
+                damage = Mathf.Clamp(damage, 0, int.MaxValue);
+                health.CurrentVal -= damage;
+                //FloatingTextController.Instance.CreateText(transform.position, damage.ToString(), Color.red, crit);
+
+                if (health.CurrentVal <= 0)
+                {
+                    Die();
+                }
             }
         }
-
-
     }
 
     public void Heal(float heal, bool crit)
     {
         health.CurrentVal = Mathf.Clamp(health.CurrentVal + heal, 0, 100);
         // FloatingTextController.Instance.CreateText(transform.position, heal.ToString(), Color.green, crit);
-
     }
     public virtual void Die()
     {

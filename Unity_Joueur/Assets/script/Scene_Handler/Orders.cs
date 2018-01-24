@@ -44,6 +44,15 @@ public class Orders  {
                 myobject.transform.position = value;
                 myobject.name = nameObject;
                 break;
+           /* case "ATTACK":
+                string[] name_attacked = nameObject.Split('_');
+                Debug.Log(name_attacked[0]);
+                GameObject prefab = (GameObject)Resources.Load("Prefab/" + name_attacked[0], typeof(GameObject));
+                GameObject myobject = Object.Instantiate(prefab);
+                myobject.transform.parent = GameObject.Find("Scene").transform;
+                myobject.transform.position = value;
+                myobject.name = nameObject;
+                break;*/
             case "DISPLAY":
                 Player p = GameObject.Find(nameObject).GetComponent<Player>();
                 if(value == Vector3.zero)
