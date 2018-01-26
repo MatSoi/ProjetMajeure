@@ -14,6 +14,7 @@ public class UDPSend : MonoBehaviour {
     public InputField IP;       // IP du client
     public InputField port;     // Port du client
     public GameObject outText;  // Popup de verification, affiche le message envoye a l ecran
+    public GameStates gameState = GameStates.StartPhase;
 
     UdpClient client;           // Module UDP
     IPEndPoint remoteEndPoint;  // Remote UDP associe a IP et Port
@@ -25,6 +26,7 @@ public class UDPSend : MonoBehaviour {
     * */
     public void connectServer() {
         closeServer();
+        gameState = GameStates.GamePhase;
         printOut("Server Connection");
         remoteEndPoint = new IPEndPoint(IPAddress.Parse(IP.text), int.Parse(port.text));
         client = new UdpClient();

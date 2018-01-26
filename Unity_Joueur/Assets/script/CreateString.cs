@@ -45,7 +45,8 @@ public class CreateString : MonoBehaviour {
     {
         foreach(GameObject UDPSender in UDPSenders)
         {
-            UDPSender.GetComponent<UDPSend>().sendString(Buffer[0]);
+            if(UDPSender.GetComponent<UDPSend>().gameState == GameStates.GamePhase)
+                UDPSender.GetComponent<UDPSend>().sendString(Buffer[0]);
             lastOrder = Buffer[0];
         }
         Buffer.RemoveAt(0);
